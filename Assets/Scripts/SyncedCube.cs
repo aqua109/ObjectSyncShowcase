@@ -14,7 +14,7 @@ public class SyncedCube : MonoBehaviour, IPunInstantiateMagicCallback, IMixedRea
         // Instantiates a cube at (0, 3, 5) and passes it's PhotonView's ViewID to UpdateText
         GameObject cube = PhotonNetwork.Instantiate("Cube", new Vector3(0, 3, 5), Quaternion.identity, 0);
         PhotonView photonView = cube.GetComponent<PhotonView>();
-        photonView.RPC("UpdateText", RpcTarget.All, photonView.ViewID);
+        photonView.RPC("UpdateText", RpcTarget.AllBuffered, photonView.ViewID);
     }
 
     [PunRPC]
